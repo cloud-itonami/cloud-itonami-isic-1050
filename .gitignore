@@ -1,0 +1,9 @@
+.cpcache/
+.clj-kondo/.cache/
+.nrepl-port
+.lsp/
+target/
+*.jar
+.DS_Store
+.env
+.env.local
