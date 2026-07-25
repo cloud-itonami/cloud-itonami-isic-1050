@@ -20,8 +20,13 @@
                :raw-milk-temp-c 3.5
                :scc-cells-ml 350000
                :tbc-cfu-ml 50000
+               ;; 63.5 °C requires 1800 s (30 min) per 21 CFR 1240.61(b) and
+               ;; 乳等省令. This demo previously claimed 31 SECONDS at this
+               ;; temperature -- a grossly under-pasteurized batch presented as
+               ;; compliant, which nothing caught because the Governor never
+               ;; checks hold time. Corrected to a real LTLT hold.
                :pasteurization-temp-c 63.5
-               :pasteurization-hold-time-sec 31
+               :pasteurization-hold-time-sec 1810
                :cooling-temp-c 3.8
                :holding-time-hours 12
                :sanitation-score 85
