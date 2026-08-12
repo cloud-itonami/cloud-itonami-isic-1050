@@ -1,5 +1,11 @@
 {:paths ["src"]
- :deps {}
+ ;; jp-go-digital-design-system (DADS) is this workspace's base design
+ ;; system; `jp-go-dds.skin/dds+skin` styles the build-time operator
+ ;; console without touching its markup. Pinned by :git/sha (not
+ ;; :local/root) so the renderer also resolves in a standalone fork.
+ :deps {io.github.kotoba-lang/jp-go-digital-design-system
+        {:git/url "https://github.com/kotoba-lang/jp-go-digital-design-system"
+         :git/sha "83db99546eabc53613ae826ea41d1533a3c574af"}}
  :aliases
  {:dev {:override-deps
         {io.github.kotoba-lang/langchain
@@ -7,6 +13,12 @@
         io.github.kotoba-lang/langgraph
         {:local/root "../../kotoba-lang/langgraph"}}}
   :run {:main-opts ["-m" "dairyprocessing.sim"]}
+  ;; clojure -M:dev:render-html [out-file] -> drive the REAL actor at build
+  ;; time and write docs/samples/operator-console.html from what it actually
+  ;; did. Deterministic (no clock / randomness / network): re-running the
+  ;; renderer produces a byte-identical file. Refuses to write a console
+  ;; whose ledger contains no governor hold.
+  :render-html {:main-opts ["-m" "dairyprocessing.render-html"]}
   :test {:extra-paths ["test"]
          :extra-deps {io.github.cognitect-labs/test-runner
                       {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
