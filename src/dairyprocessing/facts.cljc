@@ -62,7 +62,7 @@
        food-safety gate. Left as-is to avoid loosening a live gate on
        reasoning the sources do not settle."
   (:require [clojure.set :as set]
-            [clojure.string :as str]))
+            [kotoba.lang.text :as str]))
 
 (def jurisdictions
   "Dairy processing jurisdictions and their required documentation/evidence
