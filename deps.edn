@@ -18,7 +18,7 @@
         io.github.kotoba-lang/langgraph
         {:local/root "../../kotoba-lang/langgraph"}}}
   :run {:main-opts ["-m" "dairyprocessing.sim"]}
-  ;; clojure -M:dev:render-html [out-file] -> drive the REAL actor at build
+  ;; kbb -M:dev:render-html [out-file] -> drive the REAL actor at build
   ;; time and write docs/samples/operator-console.html from what it actually
   ;; did. Deterministic (no clock / randomness / network): re-running the
   ;; renderer produces a byte-identical file. Refuses to write a console

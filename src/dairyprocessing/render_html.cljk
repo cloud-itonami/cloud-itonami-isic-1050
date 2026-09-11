@@ -34,7 +34,7 @@
   carried as seed data and never rendered as \"now\". Re-running the
   renderer produces a byte-identical file.
 
-  Usage: `clojure -M:dev:render-html [out-file]`
+  Usage: `kbb -M:dev:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
   (:require [kotoba.lang.text :as str]
             [jp-go-dds.skin]
@@ -398,7 +398,7 @@
      "  <section class=\"card\">\n"
      "    <h2>Processing batches</h2>\n"
      "    <p class=\"muted\">Build-time snapshot, generated from <code>dairyprocessing.store</code> by "
-     "<code>dairyprocessing.render-html</code> (<code>clojure -M:dev:render-html</code>). "
+     "<code>dairyprocessing.render-html</code> (<code>kbb -M:dev:render-html</code>). "
      "Every status below is the disposition the real actor returned for that batch — nothing here is authored by hand.</p>\n"
      "    <table>\n"
      "      <thead><tr><th>Batch</th><th>Jurisdiction</th><th>Product</th>"

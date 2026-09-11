@@ -5,7 +5,7 @@ Thank you for your interest in contributing to cloud-itonami-isic-1050!
 ## Development Setup
 
 1. Clone this repository
-2. Run `clojure -M:test` to verify your environment
+2. Run `kbb -M:test` to verify your environment
 3. Code in `.cljc` (portable Clojure, runs on JVM and JavaScript)
 
 ## Scope Boundaries
@@ -26,8 +26,8 @@ Before contributing, please understand the scope:
 
 ## Guidelines
 
-1. **All tests must pass**: Run `clojure -M:test` before submitting
-2. **Lint checks must pass**: Run `clojure -M:lint` before submitting
+1. **All tests must pass**: Run `kbb -M:test` before submitting
+2. **Lint checks must pass**: Run `kbb -M:lint` before submitting
 3. **.cljc only**: No JVM-only (`:clj`) constructs; must be portable
 4. **Governor rules are additive**: Never remove a food-safety check
 5. **Audit trail is immutable**: Append-only facts; no history rewriting
@@ -38,7 +38,7 @@ Before contributing, please understand the scope:
 1. Fork this repository
 2. Create a feature branch (`git checkout -b feature/my-feature`)
 3. Commit with clear messages citing any specs or ADRs
-4. Run `clojure -M:test && clojure -M:lint`
+4. Run `kbb -M:test && kbb -M:lint`
 5. Open a pull request with:
    - Description of the change
    - Rationale (why this change improves the actor)
