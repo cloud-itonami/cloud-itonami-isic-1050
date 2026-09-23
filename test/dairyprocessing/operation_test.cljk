@@ -1,5 +1,5 @@
 (ns dairyprocessing.operation-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [dairyprocessing.operation :as operation]
             [dairyprocessing.store :as store]
             [dairyprocessing.advisor :as advisor]))

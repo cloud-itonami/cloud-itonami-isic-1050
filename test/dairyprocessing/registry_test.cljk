@@ -1,5 +1,5 @@
 (ns dairyprocessing.registry-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [dairyprocessing.registry :as registry]))
 
 (deftest pasteurization-temp-validation

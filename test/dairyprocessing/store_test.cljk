@@ -1,5 +1,5 @@
 (ns dairyprocessing.store-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [dairyprocessing.store :as store]))
 
 (deftest mem-store-basic
