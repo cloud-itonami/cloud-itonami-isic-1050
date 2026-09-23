@@ -1,5 +1,5 @@
 (ns dairyprocessing.governor-test
-  (:require [clojure.test :refer [deftest is are testing]]
+  (:require [kotoba.test :refer [deftest is are testing]]
             [dairyprocessing.governor :as governor]
             [dairyprocessing.store :as store]
             [dairyprocessing.facts :as facts]))
