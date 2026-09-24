@@ -4,6 +4,10 @@
  ;; console without touching its markup. Pinned by :git/sha (not
  ;; :local/root) so the renderer also resolves in a standalone fork.
  :deps {
+        ;; kotoba.robotics.process: the process-physics solvers and probe this
+        ;; repo's physics.edn runs on (physical-AI bot, scripts/physical-ai-bots).
+        io.github.kotoba-lang/robotics {:local/root "../../kotoba-lang/robotics"}
+
         ;; kotoba.io replaced clojure.java.io / java.io.File here (2026-09-24).
         ;; An explicit floor: the java.io.File method functions (exists?, file?,
         ;; parent-file, canonical-path, mkdirs, list-files ...) are in kotoba.io
@@ -26,7 +30,14 @@
         {:git/url "https://github.com/kotoba-lang/jp-go-digital-design-system"
          :git/sha "83db99546eabc53613ae826ea41d1533a3c574af"}}
  :aliases
- {:dev {:override-deps
+ {
+  ;; kbb -M:physics -> the physical-AI bot's measurement: runs physics.edn on
+  ;; kotoba.robotics.process and prints one probe map. Exit 2 = could not measure.
+  :physics {:main-opts ["-m" "kotoba.robotics.process.probe"]}
+  ;; kbb -M:physai-test -> test/'s .cljk on kbb's runner (the bot's test count;
+  ;; a .kotoba vertical's own :test may refuse kbb on purpose).
+  :physai-test {:extra-paths ["test" "test-physai"] :main-opts ["-m" "cognitect.test-runner"]}
+:dev {:override-deps
         {io.github.kotoba-lang/langchain
          {:local/root "../../kotoba-lang/langchain"}
         io.github.kotoba-lang/langgraph
