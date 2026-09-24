@@ -61,7 +61,7 @@
        not a safety hazard, so a max belongs to product quality, not to the
        food-safety gate. Left as-is to avoid loosening a live gate on
        reasoning the sources do not settle."
-  (:require [clojure.set :as set]
+  (:require [kotoba.lang.coll :as set]
             [kotoba.lang.text :as str]))
 
 (def jurisdictions
