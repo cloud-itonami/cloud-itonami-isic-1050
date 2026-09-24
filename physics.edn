@@ -1,0 +1,22 @@
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isic-1050"
+ :cases
+ [{:id :htst-heating-channel
+   :kind :thermal
+   :procedure "milk leaving the regeneration section at 55 C is heated in a 3 mm plate channel by 80 C hot water from both plates before the holding tube (half-gap model, centre line insulated by symmetry; conduction only, no turbulent mixing)"
+   :params {:thickness-m 0.0015 :conductivity-w-mk 0.55 :density-kg-m3 1030.0 :specific-heat-j-kgk 3900.0
+            :t0-c 55.0 :t-hot-c 80.0 :h-front-w-m2k 3000.0 :h-back-w-m2k 0.0 :t-back-ambient-c 55.0
+            :threshold-c 72.0 :nodes 11}
+   :sweep {:param :duration-s :values [5.0 10.0 15.0 20.0 30.0]}
+   :quantity :final-back-c
+   :limit {:min 72.0 :basis "US FDA Grade A Pasteurized Milk Ordinance: HTST pasteurization at 72 C (161 F) for at least 15 s; here the milk must reach 72 C at the channel centre before entering the holding tube"}
+   :boundary {:lo 0.5 :hi 120.0}}
+  {:id :raw-milk-intake
+   :kind :pipe-flow
+   :procedure "intake pump moves chilled raw milk from the tanker to the silo through a 2.5-inch sanitary line"
+   :params {:diameter-m 0.0635 :length-m 30.0 :roughness-m 1.5e-6
+            :density-kg-m3 1030.0 :viscosity-pa-s 3.0e-3 :pump-efficiency 0.6 :elevation-m 8.0}
+   :sweep {:param :q-m3s :values [0.005 0.010 0.015 0.020 0.025]}
+   :quantity :pressure-drop-pa
+   :limit {:max 3.0e5 :basis "estimate: ~3 bar head of a sanitary centrifugal milk pump"}
+   :boundary {:lo 0.001 :hi 0.05}}]}
